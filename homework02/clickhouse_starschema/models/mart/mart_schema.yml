@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fact_line_order
+    description: "Order lines wide table"
+    columns:
+      - name: LO_ORDERKEY
+        description: "Order business key"
+
+      - name: LO_LINENUMBER
+        description: "Order line number"
