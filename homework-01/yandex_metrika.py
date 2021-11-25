@@ -1,9 +1,6 @@
 import io
-from datetime import datetime, date, timedelta
-
 import requests
 import pandas as pd
-from loguru import logger
 
 
 def get_stat_data(metrics, dimensions, filters, sort, start_date, end_date):
