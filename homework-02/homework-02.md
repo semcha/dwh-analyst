@@ -39,7 +39,7 @@ clickhouse-client --database=dbt --password=1234 --multiquery < init_source_tabl
 ```
 
 ```bash
-# dbt commands
+# Комманды dbt
 dbt debug
 dbt deps
 dbt compile
@@ -49,7 +49,7 @@ dbt docs serve --port 8090
 ```
 
 ```bash
-# Run check queries
+# Запуск проверочных запросов
 clickhouse-client --database=dbt --password=1234 --multiquery < check_queries.sql
 ```
 
