@@ -1,16 +1,15 @@
 CREATE TABLE src_customer
 (
-        C_CUSTKEY       UInt32,
-        C_NAME          String,
-        C_ADDRESS       String,
-        C_CITY          LowCardinality(String),
-        C_NATION        LowCardinality(String),
-        C_REGION        LowCardinality(String),
-        C_PHONE         String,
-        C_MKTSEGMENT    LowCardinality(String)
+    C_CUSTKEY       UInt32,
+    C_NAME          String,
+    C_ADDRESS       String,
+    C_CITY          LowCardinality(String),
+    C_NATION        LowCardinality(String),
+    C_REGION        LowCardinality(String),
+    C_PHONE         String,
+    C_MKTSEGMENT    LowCardinality(String)
 )
-ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/customer.tbl', 'CSV')
-;
+ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/customer.tbl', 'CSV');
 
 CREATE TABLE src_lineorder
 (
@@ -32,33 +31,30 @@ CREATE TABLE src_lineorder
     LO_COMMITDATE           Date,
     LO_SHIPMODE             LowCardinality(String)
 )
-ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/lineorder.tbl', 'CSV')
-;
+ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/lineorder.tbl', 'CSV');
 
 CREATE TABLE src_part
 (
-        P_PARTKEY       UInt32,
-        P_NAME          String,
-        P_MFGR          LowCardinality(String),
-        P_CATEGORY      LowCardinality(String),
-        P_BRAND         LowCardinality(String),
-        P_COLOR         LowCardinality(String),
-        P_TYPE          LowCardinality(String),
-        P_SIZE          UInt8,
-        P_CONTAINER     LowCardinality(String)
+    P_PARTKEY       UInt32,
+    P_NAME          String,
+    P_MFGR          LowCardinality(String),
+    P_CATEGORY      LowCardinality(String),
+    P_BRAND         LowCardinality(String),
+    P_COLOR         LowCardinality(String),
+    P_TYPE          LowCardinality(String),
+    P_SIZE          UInt8,
+    P_CONTAINER     LowCardinality(String)
 )
-ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/part.tbl', 'CSV')
-;
+ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/part.tbl', 'CSV');
 
 CREATE TABLE src_supplier
 (
-        S_SUPPKEY       UInt32,
-        S_NAME          String,
-        S_ADDRESS       String,
-        S_CITY          LowCardinality(String),
-        S_NATION        LowCardinality(String),
-        S_REGION        LowCardinality(String),
-        S_PHONE         String
+    S_SUPPKEY       UInt32,
+    S_NAME          String,
+    S_ADDRESS       String,
+    S_CITY          LowCardinality(String),
+    S_NATION        LowCardinality(String),
+    S_REGION        LowCardinality(String),
+    S_PHONE         String
 )
-ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/supplier.tbl', 'CSV')
-;
+ENGINE = S3('https://storage.yandexcloud.net/otus-dwh/dbgen/supplier.tbl', 'CSV');

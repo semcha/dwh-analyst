@@ -40,10 +40,13 @@ clickhouse-client --database=dbt --password=1234 --multiquery < init_source_tabl
 
 ```bash
 # dbt commands
-dbt deps
 dbt debug
+dbt deps
 dbt compile
 dbt run
+dbt docs generate
+dbt docs
+dbt docs serve --port 8090
 ```
 
 ```bash
