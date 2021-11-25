@@ -45,7 +45,6 @@ dbt deps
 dbt compile
 dbt run
 dbt docs generate
-dbt docs
 dbt docs serve --port 8090
 ```
 
