@@ -1,13 +1,17 @@
+import os
 import boto3
+from dotenv import load_dotenv
+
 import yandex_metrika as ym
 
+load_dotenv()
 
 def upload_to_yc_s3(file_name, df):
     file_name = f"{file_name}.parquet"
     df.to_parquet(file_name, compression=None)
     session = boto3.session.Session(
-        aws_access_key_id="ACCESS_KEY",
-        aws_secret_access_key="SECRET_KEY",
+        aws_access_key_id=os.getenv("YANDEX_ACCESS_KEY"),
+        aws_secret_access_key=os.getenv("YANDEX_SECRET_KEY"),
         region_name="ru-central1",
     )
     s3 = session.client(
