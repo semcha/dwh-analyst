@@ -3,18 +3,22 @@ from decimal import Decimal
 import logging
 import requests
 
-from airflow.decorators import dag, task
+from airflow import DAG
+from airflow.decorators import task
 from airflow.hooks.postgres_hook import PostgresHook
 
 
-@dag(
+with DAG(
+    dag_id="btc_dag",
+    default_args={
+        "retries": 3,
+        "retry_delay": timedelta(minutes=1),
+    },
     schedule_interval="*/30 * * * *",
     start_date=datetime(2021, 11, 25),
     catchup=False,
-    retries=3,
-    retry_delay=timedelta(minutes=1),
-)
-def btc_dag():
+) as dag:
+
     @task()
     def request_data():
         url = "https://api.coincap.io/v2/rates/bitcoin"
@@ -51,6 +55,3 @@ def btc_dag():
 
     btc_data = request_data()
     insert_data(btc_data)
-
-
-run_dag = btc_dag()
