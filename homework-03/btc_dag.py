@@ -1,13 +1,19 @@
-import json
+from datetime import datetime, timedelta
 from decimal import Decimal
-from datetime import datetime
 import logging
 import requests
+
 from airflow.decorators import dag, task
 from airflow.hooks.postgres_hook import PostgresHook
 
 
-@dag(schedule_interval="*/30 * * * *", start_date=datetime(2021, 11, 25), catchup=False)
+@dag(
+    schedule_interval="*/30 * * * *",
+    start_date=datetime(2021, 11, 25),
+    catchup=False,
+    retries=3,
+    retry_delay=timedelta(minutes=1),
+)
 def btc_dag():
     @task()
     def request_data():
